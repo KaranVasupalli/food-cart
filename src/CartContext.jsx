@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CartContext = createContext();
@@ -38,8 +38,12 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
+    <>
     <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
+    <ToastContainer />
+    </>
+    
   );
 };

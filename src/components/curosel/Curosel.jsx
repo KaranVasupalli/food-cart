@@ -12,13 +12,36 @@ const Curosel = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   const data = [
     {
       img: "https://img.freepik.com/free-photo/flat-lay-salad-with-chicken-sesame-seeds_23-2148700369.jpg?w=900",
-      name: "salads",
+      name: "Salads",
     },
     {
       img: "https://img.freepik.com/free-photo/top-view-delicious-noodles-concept_23-2148773780.jpg?w=900",
@@ -54,34 +77,32 @@ const Curosel = () => {
   }
   
   function SamplePrevArrow(props) {
-    const { className,  onClick } = props;
+    const { className, onClick } = props;
     return (
       <div
         className={className}
-        style={{  display: "block", background: "black" }}
+        style={{ display: "block", background: "black" }}
         onClick={onClick}
       />
     );
   }
 
-
-
   return (
     <div className="main-container mb-9">
-        <div className="container">
-      <Slider {...settings}>
-        {data.map((d, index) => (
-          <div className="box" key={index}>
-            <div>
-              <img src={d.img} alt="" />
+      <div className="container">
+        <Slider {...settings}>
+          {data.map((d, index) => (
+            <div className="box" key={index}>
+              <div>
+                <img src={d.img} alt={d.name} className="carousel-image" />
+              </div>
+              <div>
+                <p className="text-black text-center">{d.name}</p>
+              </div>
             </div>
-            <div>
-              <p className=" text-black">{d.name}</p>
-            </div>
-          </div>
-        ))}
-      </Slider>
-        </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

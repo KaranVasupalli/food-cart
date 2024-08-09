@@ -6,12 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import LogIn from "./pages/LogIn";
 import Register from "./pages/Register";
-import Cart from './components/Cart';
-import Menu from "./components/Menu";
 import { CartProvider } from './CartContext';  // Adjust the import path
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
-
+import FoodAi from './components/FoodAi/FoodAi'
 import CartSec from './pages/CartSec'
 
 const App = () => {
@@ -24,6 +22,7 @@ const App = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/cartsec" element={<CartSec />} />
+          <Route path="/foodAi" element={<FoodAi />} />
         </Routes>
         <ToastContainer />
       </CartProvider>

@@ -3,10 +3,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth"
 import {getFirestore} from "firebase/firestore"
 import {getStorage} from 'firebase/storage'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB7RXEYkXZbRZ1YLfX1YVmv5RDNP76Vgf8",
   authDomain: "food-cart-ed745.firebaseapp.com",
@@ -16,7 +13,6 @@ const firebaseConfig = {
   appId: "1:489356379620:web:0f36806917b6494cd2f3f1"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const db = getFirestore()

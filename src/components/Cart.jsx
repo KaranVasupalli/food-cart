@@ -43,7 +43,7 @@ const Cart = () => {
     <>
       <div className='flex justify-center mt-6'>
         <div className="cart-container border p-4 w-[850px] bg-[#FDFBF9]">
-          <h2 className="text-2xl text-center mb-4 text-black">Your Cart</h2>
+          <h1 className="text-3xl text-center mb-4 mt-16 text-black">Your Cart</h1>
           {isOrderCompleted ? (
             <div className='flex flex-col text-center h-[550px] justify-center items-center'>
               <h3 className='text-3xl text-black'>Order Completed</h3>

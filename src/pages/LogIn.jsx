@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../components/firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from '../components/Navbar';
 
 const LogIn = () => {
     const navigate = useNavigate();
@@ -41,13 +42,16 @@ const LogIn = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <>
+        <Navbar />
+        <div className="min-h-screen bg-green-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                     Sign in to your account
                 </h2>
                 <p className="mt-2 text-center text-sm text-gray-600 max-w">
                     Or
+                    <br />
                     <a href="#" onClick={signUp_page} className="font-medium text-blue-600 hover:text-blue-500">
                         create an account
                     </a>
@@ -123,7 +127,7 @@ const LogIn = () => {
                             </button>
                         </div>
                     </form>
-                    <div className="mt-6">
+                    {/* <div className="mt-6">
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t border-gray-300"></div>
@@ -161,11 +165,12 @@ const LogIn = () => {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <ToastContainer />
         </div>
+        </>
     );
 }
 

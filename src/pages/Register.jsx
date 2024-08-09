@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { setDoc, doc } from 'firebase/firestore';
 
 import { toast } from 'react-toastify';
+import Navbar from '../components/Navbar';
 
 const Register = () => {
     const [fullname, setFullname] = useState('');
@@ -41,7 +42,9 @@ const Register = () => {
     };
 
     return (
-        <div className="bg-gray-100 flex items-center justify-center h-screen">
+        <>
+        <Navbar />
+        <div className="bg-green-50 flex items-center justify-center h-screen">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
                 <div className="flex justify-center mb-6">
                     <span className="inline-block bg-gray-200 rounded-full p-3">
@@ -83,6 +86,7 @@ const Register = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

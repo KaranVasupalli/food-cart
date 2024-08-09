@@ -3,7 +3,7 @@ import './footer.css'
 
 const Footer = () => (
     <>
-        <footer className=' bg-slate-900 py-3 mt-10'>
+        <footer className='  bg-green-300 py-3 mt-10'>
             <div className=' flex  justify-around'>
                 <div className=' flex flex-col gap-2 '>
                     <h2 className=' text-2xl'>Company</h2>
@@ -28,7 +28,7 @@ const Footer = () => (
                     <div className=' flex flex-col gap-1 cursor-pointer'>
                         <p>Recieve exclusive offers in your mailbox</p>
                         <div className=' flex gap-3'>
-                            <input type="text" />
+                            <input className=' border border-green-200 rounded-md' type="text" />
                             <button>Subscribe</button>
                         </div>
                     </div>

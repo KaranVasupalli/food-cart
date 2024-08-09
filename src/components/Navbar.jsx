@@ -34,26 +34,29 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="flex justify-around text-3xl bg-slate-700 h-30 text-white">
-                <div className="flex items-center gap-6">
-                    <img className="w-14" src="./src/assets/foodDL.png" alt="" />
-                    <h1>Food Delivery</h1>
+            <nav className="fixed top-0 left-0 w-full z-50 flex justify-around text-3xl bg-green-200 h-24">
+                <div className="flex items-center justify-center gap-6">
+                    <div className="flex items-start">
+                        <img className="pb-5" src="./src/assets/2logo.png" alt="" />
+                    </div>
                 </div>
                 <div className="flex items-center gap-6 cursor-pointer list-none">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/reviews'>Reviews</Link></li>
                     <li><Link to='/cartsec'>Cart</Link></li>
+                    <li><Link to='/foodAi'>FoodAi</Link></li>
+
                 </div>
                 <div className="flex gap-6 items-center">
                     {user ? (
                         <div className="flex gap-4 items-center">
                             <span>Hi, {user.email}</span>
-                            <button onClick={handleSignOut} className="px-4 py-2 bg-slate-500 rounded-md">Sign Out</button>
+                            <button onClick={handleSignOut} className="px-4 py-2 bg-green-400 rounded-md">Sign Out</button>
                         </div>
                     ) : (
                         <div className="flex gap-4">
-                            <button onClick={Login_page} className="px-4 py-2 bg-slate-500 rounded-md">Login</button>
-                            <button onClick={signUp_page} className="px-4 py-2 bg-slate-500 rounded-md">Sign Up</button>
+                            <button onClick={Login_page} className="px-4 py-2 bg-green-300 rounded-md">Login</button>
+                            <button onClick={signUp_page} className="px-4 py-2 bg-green-300 rounded-md">Sign Up</button>
                         </div>
                     )}
                 </div>
