@@ -1,25 +1,25 @@
-import { auth } from '../components/firebase';
 import React, { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { auth } from '../components/firebase';
 import Navbar from '../components/Navbar';
 import ReviewSec from '../components/ReviewSec';
 
 const Reviews = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [username, setUsername] = useState(''); // Add a state for username
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
                 setIsLoggedIn(true);
+                setUsername(user.displayName || user.email); // Set username (use displayName or email)
             } else {
                 setIsLoggedIn(false);
             }
             setLoading(false);
         });
 
-        return () => unsubscribe(); // Cleanup subscription on unmount
+        return () => unsubscribe();
     }, []);
 
     if (loading) {
@@ -29,12 +29,7 @@ const Reviews = () => {
     return (
         <>
             <Navbar />
-            {isLoggedIn ? (
-                <ReviewSec />
-            ) : (
-                <p>You need to log in to view and submit reviews.</p>
-            )}
-            <ToastContainer />
+            <ReviewSec username={username} isLoggedIn={isLoggedIn} />
         </>
     );
 }

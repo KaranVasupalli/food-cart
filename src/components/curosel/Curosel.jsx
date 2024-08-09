@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Curosel = () => {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 200,
     slidesToShow: 6,
@@ -47,7 +47,7 @@ const Curosel = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "red" }}
+        style={{ ...style, display: "block", background: "black" }}
         onClick={onClick}
       />
     );
@@ -67,7 +67,7 @@ const Curosel = () => {
 
 
   return (
-    <div className="main-container">
+    <div className="main-container mb-9">
         <div className="container">
       <Slider {...settings}>
         {data.map((d, index) => (
@@ -76,7 +76,7 @@ const Curosel = () => {
               <img src={d.img} alt="" />
             </div>
             <div>
-              <p>{d.name}</p>
+              <p className=" text-black">{d.name}</p>
             </div>
           </div>
         ))}

@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCart } from '../CartContext'; // Adjust the import path
+import { auth } from '../components/firebase'; // Adjust the import path
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useCart();
   const [isOrderCompleted, setIsOrderCompleted] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription on unmount
+  }, []);
 
   const totalAmount = cartItems.reduce((total, item) => {
     const itemPrice = parseFloat(item.price);
@@ -11,17 +27,22 @@ const Cart = () => {
   }, 0);
 
   const handleCheckout = () => {
-    // Simulate order completion
-    setIsOrderCompleted(true);
-    // Optionally clear the cart
-    // You might want to clear the cart items after checkout is completed
-    // localStorage.removeItem('cartItems'); // If you're using localStorage
+    if (!isLoggedIn) {
+      alert('Please log in to proceed with the checkout.');
+      navigate('/login'); // Redirect to login page
+    } else {
+      // Simulate order completion
+      setIsOrderCompleted(true);
+      // Optionally clear the cart
+      // You might want to clear the cart items after checkout is completed
+      // localStorage.removeItem('cartItems'); // If you're using localStorage
+    }
   };
 
   return (
     <>
       <div className='flex justify-center mt-6'>
-        <div className="cart-container border p-4 w-[850px]  bg-[#FDFBF9]">
+        <div className="cart-container border p-4 w-[850px] bg-[#FDFBF9]">
           <h2 className="text-2xl text-center mb-4 text-black">Your Cart</h2>
           {isOrderCompleted ? (
             <div className='flex flex-col text-center h-[550px] justify-center items-center'>
