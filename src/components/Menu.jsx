@@ -36,7 +36,7 @@ const Menu = () => {
         />
       </div>
       <Curosel />
-      <div className="flex justify-center items-center border  ">
+      <div className="flex justify-center items-center   ">
         <div className="flex flex-wrap gap-4 justify-center w-[90%]">
           {filteredData.map((item, index) => (
             <div key={index} className="flex flex-col justify-center border p-4 w-[340px] bg-green-200 rounded-md">
