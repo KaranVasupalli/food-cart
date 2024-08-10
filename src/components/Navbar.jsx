@@ -37,7 +37,7 @@ const Navbar = () => {
             <nav className="fixed top-0 left-0 w-full z-50 flex justify-around text-3xl bg-green-200 h-24">
                 <div className="flex items-center justify-center gap-6">
                     <div className="flex items-start">
-                        <img className="pb-5" src="./src/assets/2logo.png" alt="" />
+                        <img className="pb-5" src="/2logo.png" alt="" />
                     </div>
                 </div>
                 <div className="flex items-center gap-6 cursor-pointer list-none">
