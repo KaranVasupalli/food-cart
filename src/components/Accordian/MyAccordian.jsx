@@ -9,7 +9,7 @@ const MyAccordian = ({question,answer}) => {
                 <div className=' flex flex-col justify-center w-[500px] text-2xl'>
                     <div className='flex gap-3 cursor-pointer'>
                     <p onClick={()=> setShow(!show)}>{show? "➖" :"➕"}</p>
-                    <h1>{question}</h1>
+                    <h2>{question}</h2>
                     </div>
                     {
                         show && <p className=' px-4'>{answer}</p>
