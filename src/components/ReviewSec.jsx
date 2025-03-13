@@ -13,7 +13,7 @@ const ReviewSec = ({ username, isLoggedIn }) => {
   const handleAddReview = () => {
     if (newReview.trim()) {
       const reviewWithUsername = {
-        username: username || "Anonymous", // If no username is provided
+        username: username || "Anonymous", 
         content: newReview,
       };
       setReviews([...reviews, reviewWithUsername]);
@@ -76,10 +76,10 @@ const ReviewSec = ({ username, isLoggedIn }) => {
         </div>
       </div>
       <div>
-        <C_Reviews /> {/* This can include manually added reviews */}
+        <C_Reviews /> 
       </div>
       <div>
-        <Accordian /> {/* This is always visible */}
+        <Accordian />
       </div>
     </>
   );
