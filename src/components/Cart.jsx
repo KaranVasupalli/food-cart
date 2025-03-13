@@ -18,7 +18,7 @@ const Cart = () => {
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   const totalAmount = cartItems.reduce((total, item) => {
@@ -31,11 +31,8 @@ const Cart = () => {
       alert('Please log in to proceed with the checkout.');
       navigate('/login'); // Redirect to login page
     } else {
-      // Simulate order completion
       setIsOrderCompleted(true);
-      // Optionally clear the cart
-      // You might want to clear the cart items after checkout is completed
-      // localStorage.removeItem('cartItems'); // If you're using localStorage
+      
     }
   };
 
